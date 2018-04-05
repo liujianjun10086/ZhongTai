@@ -27,7 +27,7 @@ $(function(){
     </div>
         
     <ul class="nav">
-    <li><a href="${pageContext.request.contextPath}/jsp/default.jsp" target="rightFrame" class="selected"><img width="45px" height="45px" src="${pageContext.request.contextPath}/images/icon01.png" title="审批列表" /><h2>审批列表</h2></a></li>
+    <li><a href="<%=request.getContextPath()%>/recordList" target="rightFrame" class="selected"><img width="45px" height="45px" src="${pageContext.request.contextPath}/images/icon01.png" title="审批列表" /><h2>审批列表</h2></a></li>
     <li><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon05.png" width="45px" height="45px" title="审批添加" /><h2>审批添加</h2></a></li>
     <li><a href="${pageContext.request.contextPath}/jsp/imglist.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon03.png" title="申请列表" /><h2>申请列表</h2></a></li>
     <li><a href="${pageContext.request.contextPath}/jsp/tools.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon04.png" title="客户列表" /><h2>客户列表</h2></a></li>
@@ -45,7 +45,7 @@ $(function(){
     </ul>
      
     <div class="user">
-    <span>${user.username}</span>
+    <span>${staff.staffName}</span>
     <i>申请消息</i>
     <b>5</b>
     </div>    

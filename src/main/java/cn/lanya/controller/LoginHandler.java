@@ -28,6 +28,7 @@ public class LoginHandler {
         if (staff1!=null){
             List<Power> powerList =getAll();
             HttpSession session =request.getSession(true);
+            session.setAttribute("staff",staff1);
             session.setAttribute("powerList",powerList);
             modelAndView.setViewName("top");
 

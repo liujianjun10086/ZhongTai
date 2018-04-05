@@ -43,14 +43,16 @@
     <span class="systemlogo"></span> 
        
     <div class="loginbox">
-    
+    <form action="<%=request.getContextPath()%>/login" method="get">
     <ul>
-    <li><input name="" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="" type="button" class="loginbtn" value="登录"  onclick="javascript:window.location='${pageContext.request.contextPath}/jsp/main.jsp'"  /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
+    <li><input name="staffJnum" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
+    <li><input name="staffPassword" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
+    <li><button type="submit" class="loginbtn"   />登录
+        <%--<label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>--%>
     </ul>
-    
-    
+    </form>
+        <%--onclick="javascript:window.location='${pageContext.request.contextPath}/jsp/main.jsp'"--%>
+
     </div>
     
     </div>
