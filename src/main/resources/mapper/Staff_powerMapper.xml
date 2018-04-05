@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.Staff_powerMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Staff_power" >
+    <id column="staff_power_id" property="staffPowerId" jdbcType="INTEGER" />
+    <result column="staff_power_jnum" property="staffPowerJnum" jdbcType="VARCHAR" />
+    <result column="staff_power_num" property="staffPowerNum" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from staff_power
+    where staff_power_id = #{staffPowerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Staff_power" >
+    insert into staff_power (staff_power_id, staff_power_jnum, staff_power_num
+      )
+    values (#{staffPowerId,jdbcType=INTEGER}, #{staffPowerJnum,jdbcType=VARCHAR}, #{staffPowerNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Staff_power" >
+    update staff_power
+    set staff_power_jnum = #{staffPowerJnum,jdbcType=VARCHAR},
+      staff_power_num = #{staffPowerNum,jdbcType=INTEGER}
+    where staff_power_id = #{staffPowerId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select staff_power_id, staff_power_jnum, staff_power_num
+    from staff_power
+    where staff_power_id = #{staffPowerId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select staff_power_id, staff_power_jnum, staff_power_num
+    from staff_power
+  </select>
+</mapper>

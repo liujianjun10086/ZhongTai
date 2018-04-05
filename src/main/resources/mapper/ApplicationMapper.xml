@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ApplicationMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Application" >
+    <id column="application_id" property="applicationId" jdbcType="INTEGER" />
+    <result column="application_username" property="applicationUsername" jdbcType="VARCHAR" />
+    <result column="application_phone" property="applicationPhone" jdbcType="VARCHAR" />
+    <result column="application_number" property="applicationNumber" jdbcType="VARCHAR" />
+    <result column="application_money" property="applicationMoney" jdbcType="DOUBLE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from application
+    where application_id = #{applicationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Application" >
+    insert into application (application_id, application_username, 
+      application_phone, application_number, application_money
+      )
+    values (#{applicationId,jdbcType=INTEGER}, #{applicationUsername,jdbcType=VARCHAR}, 
+      #{applicationPhone,jdbcType=VARCHAR}, #{applicationNumber,jdbcType=VARCHAR}, #{applicationMoney,jdbcType=DOUBLE}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Application" >
+    update application
+    set application_username = #{applicationUsername,jdbcType=VARCHAR},
+      application_phone = #{applicationPhone,jdbcType=VARCHAR},
+      application_number = #{applicationNumber,jdbcType=VARCHAR},
+      application_money = #{applicationMoney,jdbcType=DOUBLE}
+    where application_id = #{applicationId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select application_id, application_username, application_phone, application_number, 
+    application_money
+    from application
+    where application_id = #{applicationId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select application_id, application_username, application_phone, application_number, 
+    application_money
+    from application
+  </select>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.DepartMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Depart" >
+    <id column="depart_id" property="departId" jdbcType="INTEGER" />
+    <result column="depart_name" property="departName" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from depart
+    where depart_id = #{departId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Depart" >
+    insert into depart (depart_id, depart_name)
+    values (#{departId,jdbcType=INTEGER}, #{departName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Depart" >
+    update depart
+    set depart_name = #{departName,jdbcType=VARCHAR}
+    where depart_id = #{departId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select depart_id, depart_name
+    from depart
+    where depart_id = #{departId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select depart_id, depart_name
+    from depart
+  </select>
+</mapper>

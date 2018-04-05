@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.MessageMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Message" >
+    <id column="message_id" property="messageId" jdbcType="INTEGER" />
+    <result column="message_name" property="messageName" jdbcType="VARCHAR" />
+    <result column="message_content" property="messageContent" jdbcType="VARCHAR" />
+    <result column="message_depart" property="messageDepart" jdbcType="INTEGER" />
+    <result column="message_datetime" property="messageDatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from message
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Message" >
+    insert into message (message_id, message_name, message_content, 
+      message_depart, message_datetime)
+    values (#{messageId,jdbcType=INTEGER}, #{messageName,jdbcType=VARCHAR}, #{messageContent,jdbcType=VARCHAR}, 
+      #{messageDepart,jdbcType=INTEGER}, #{messageDatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Message" >
+    update message
+    set message_name = #{messageName,jdbcType=VARCHAR},
+      message_content = #{messageContent,jdbcType=VARCHAR},
+      message_depart = #{messageDepart,jdbcType=INTEGER},
+      message_datetime = #{messageDatetime,jdbcType=TIMESTAMP}
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select message_id, message_name, message_content, message_depart, message_datetime
+    from message
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select message_id, message_name, message_content, message_depart, message_datetime
+    from message
+  </select>
+</mapper>

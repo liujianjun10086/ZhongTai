@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Record" >
+    <id column="record_id" property="recordId" jdbcType="INTEGER" />
+    <result column="record_customer_name" property="recordCustomerName" jdbcType="VARCHAR" />
+    <result column="record_customer_phone" property="recordCustomerPhone" jdbcType="VARCHAR" />
+    <result column="record_customer_num" property="recordCustomerNum" jdbcType="VARCHAR" />
+    <result column="record_organize" property="recordOrganize" jdbcType="INTEGER" />
+    <result column="record_apply" property="recordApply" jdbcType="DOUBLE" />
+    <result column="record_progress" property="recordProgress" jdbcType="INTEGER" />
+    <result column="record_granted" property="recordGranted" jdbcType="DOUBLE" />
+    <result column="record_commision" property="recordCommision" jdbcType="DOUBLE" />
+    <result column="record_staff" property="recordStaff" jdbcType="VARCHAR" />
+    <result column="record_referee" property="recordReferee" jdbcType="VARCHAR" />
+    <result column="record_datetime" property="recordDatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Record" >
+    insert into record (record_id, record_customer_name, record_customer_phone, 
+      record_customer_num, record_organize, record_apply, 
+      record_progress, record_granted, record_commision, 
+      record_staff, record_referee, record_datetime
+      )
+    values (#{recordId,jdbcType=INTEGER}, #{recordCustomerName,jdbcType=VARCHAR}, #{recordCustomerPhone,jdbcType=VARCHAR}, 
+      #{recordCustomerNum,jdbcType=VARCHAR}, #{recordOrganize,jdbcType=INTEGER}, #{recordApply,jdbcType=DOUBLE}, 
+      #{recordProgress,jdbcType=INTEGER}, #{recordGranted,jdbcType=DOUBLE}, #{recordCommision,jdbcType=DOUBLE}, 
+      #{recordStaff,jdbcType=VARCHAR}, #{recordReferee,jdbcType=VARCHAR}, #{recordDatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Record" >
+    update record
+    set record_customer_name = #{recordCustomerName,jdbcType=VARCHAR},
+      record_customer_phone = #{recordCustomerPhone,jdbcType=VARCHAR},
+      record_customer_num = #{recordCustomerNum,jdbcType=VARCHAR},
+      record_organize = #{recordOrganize,jdbcType=INTEGER},
+      record_apply = #{recordApply,jdbcType=DOUBLE},
+      record_progress = #{recordProgress,jdbcType=INTEGER},
+      record_granted = #{recordGranted,jdbcType=DOUBLE},
+      record_commision = #{recordCommision,jdbcType=DOUBLE},
+      record_staff = #{recordStaff,jdbcType=VARCHAR},
+      record_referee = #{recordReferee,jdbcType=VARCHAR},
+      record_datetime = #{recordDatetime,jdbcType=TIMESTAMP}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select record_id, record_customer_name, record_customer_phone, record_customer_num, 
+    record_organize, record_apply, record_progress, record_granted, record_commision, 
+    record_staff, record_referee, record_datetime
+    from record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select record_id, record_customer_name, record_customer_phone, record_customer_num, 
+    record_organize, record_apply, record_progress, record_granted, record_commision, 
+    record_staff, record_referee, record_datetime
+    from record
+  </select>
+</mapper>

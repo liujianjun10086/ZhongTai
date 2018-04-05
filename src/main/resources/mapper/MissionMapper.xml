@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.MissionMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Mission" >
+    <id column="mission_id" property="missionId" jdbcType="INTEGER" />
+    <result column="mission_record" property="missionRecord" jdbcType="INTEGER" />
+    <result column="mission_type" property="missionType" jdbcType="INTEGER" />
+    <result column="mission_order" property="missionOrder" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mission
+    where mission_id = #{missionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Mission" >
+    insert into mission (mission_id, mission_record, mission_type, 
+      mission_order)
+    values (#{missionId,jdbcType=INTEGER}, #{missionRecord,jdbcType=INTEGER}, #{missionType,jdbcType=INTEGER}, 
+      #{missionOrder,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Mission" >
+    update mission
+    set mission_record = #{missionRecord,jdbcType=INTEGER},
+      mission_type = #{missionType,jdbcType=INTEGER},
+      mission_order = #{missionOrder,jdbcType=INTEGER}
+    where mission_id = #{missionId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select mission_id, mission_record, mission_type, mission_order
+    from mission
+    where mission_id = #{missionId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select mission_id, mission_record, mission_type, mission_order
+    from mission
+  </select>
+</mapper>

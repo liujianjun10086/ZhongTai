@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.PowerMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Power" >
+    <id column="power_id" property="powerId" jdbcType="INTEGER" />
+    <result column="power_num" property="powerNum" jdbcType="INTEGER" />
+    <result column="power_item" property="powerItem" jdbcType="VARCHAR" />
+    <result column="power_url" property="powerUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from power
+    where power_id = #{powerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Power" >
+    insert into power (power_id, power_num, power_item, 
+      power_url)
+    values (#{powerId,jdbcType=INTEGER}, #{powerNum,jdbcType=INTEGER}, #{powerItem,jdbcType=VARCHAR}, 
+      #{powerUrl,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Power" >
+    update power
+    set power_num = #{powerNum,jdbcType=INTEGER},
+      power_item = #{powerItem,jdbcType=VARCHAR},
+      power_url = #{powerUrl,jdbcType=VARCHAR}
+    where power_id = #{powerId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select power_id, power_num, power_item, power_url
+    from power
+    where power_id = #{powerId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select power_id, power_num, power_item, power_url
+    from power
+  </select>
+</mapper>

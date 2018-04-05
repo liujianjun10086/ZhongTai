@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Customer" >
+    <id column="customer_id" property="customerId" jdbcType="INTEGER" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="customer_number" property="customerNumber" jdbcType="VARCHAR" />
+    <result column="customer_phone" property="customerPhone" jdbcType="VARCHAR" />
+    <result column="customer_QRcode" property="customerQrcode" jdbcType="VARCHAR" />
+    <result column="customer_referee" property="customerReferee" jdbcType="INTEGER" />
+    <result column="customer_state" property="customerState" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from customer
+    where customer_id = #{customerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Customer" >
+    insert into customer (customer_id, customer_name, customer_number, 
+      customer_phone, customer_QRcode, customer_referee, 
+      customer_state)
+    values (#{customerId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerNumber,jdbcType=VARCHAR}, 
+      #{customerPhone,jdbcType=VARCHAR}, #{customerQrcode,jdbcType=VARCHAR}, #{customerReferee,jdbcType=INTEGER}, 
+      #{customerState,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Customer" >
+    update customer
+    set customer_name = #{customerName,jdbcType=VARCHAR},
+      customer_number = #{customerNumber,jdbcType=VARCHAR},
+      customer_phone = #{customerPhone,jdbcType=VARCHAR},
+      customer_QRcode = #{customerQrcode,jdbcType=VARCHAR},
+      customer_referee = #{customerReferee,jdbcType=INTEGER},
+      customer_state = #{customerState,jdbcType=INTEGER}
+    where customer_id = #{customerId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select customer_id, customer_name, customer_number, customer_phone, customer_QRcode, 
+    customer_referee, customer_state
+    from customer
+    where customer_id = #{customerId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select customer_id, customer_name, customer_number, customer_phone, customer_QRcode, 
+    customer_referee, customer_state
+    from customer
+  </select>
+</mapper>

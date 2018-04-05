@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OrganizeMapper" >
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Organize" >
+    <id column="organize_id" property="organizeId" jdbcType="INTEGER" />
+    <result column="organize_name" property="organizeName" jdbcType="VARCHAR" />
+    <result column="organize_ration" property="organizeRation" jdbcType="DOUBLE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from organize
+    where organize_id = #{organizeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Organize" >
+    insert into organize (organize_id, organize_name, organize_ration
+      )
+    values (#{organizeId,jdbcType=INTEGER}, #{organizeName,jdbcType=VARCHAR}, #{organizeRation,jdbcType=DOUBLE}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Organize" >
+    update organize
+    set organize_name = #{organizeName,jdbcType=VARCHAR},
+      organize_ration = #{organizeRation,jdbcType=DOUBLE}
+    where organize_id = #{organizeId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select organize_id, organize_name, organize_ration
+    from organize
+    where organize_id = #{organizeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select organize_id, organize_name, organize_ration
+    from organize
+  </select>
+</mapper>
