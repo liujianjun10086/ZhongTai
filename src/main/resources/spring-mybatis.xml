@@ -57,6 +57,7 @@
         <!--给model类设置别名，别名是首字母小写-->
         <!--<property name="typeAliases" value="cn.lanya.po"/>-->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
         <property name="configurationProperties">
             <props>
                 <!-- 开启关键-->
