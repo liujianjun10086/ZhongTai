@@ -7,4 +7,5 @@
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="LOG4J" />
     </settings>
+
 </configuration>

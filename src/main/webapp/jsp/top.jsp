@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -31,6 +32,9 @@ $(function(){
     <li><a href="${pageContext.request.contextPath}/jsp/imglist.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon03.png" title="申请列表" /><h2>申请列表</h2></a></li>
     <li><a href="${pageContext.request.contextPath}/jsp/tools.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon04.png" title="客户列表" /><h2>客户列表</h2></a></li>
     <li><a href="${pageContext.request.contextPath}/jsp/tab.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+        <c:forEach var="powerList" items="${powerList}">
+            <li><a href="${powerList.powerUrl}"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon06.png" title="${powerList.powerItem}" /><h2>${powerList.powerItem}</h2></a></li>
+        </c:forEach>
     </ul>
             
     <div class="topright">    

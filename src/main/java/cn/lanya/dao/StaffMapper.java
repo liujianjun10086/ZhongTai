@@ -6,11 +6,13 @@ import java.util.List;
 public interface StaffMapper {
     int deleteByPrimaryKey(Integer staffId);
 
-    int insert(Staff record);
+    int insert(Staff staff);
 
     Staff selectByPrimaryKey(Integer staffId);
 
     List<Staff> selectAll();
 
     int updateByPrimaryKey(Staff record);
+
+    Staff selectByStaff(Staff staff);
 }
