@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.OrganizeMapper" >
+<mapper namespace="cn.lanya.dao.OrganizeMapper" >
   <resultMap id="BaseResultMap" type="cn.lanya.po.Organize" >
     <id column="organize_id" property="organizeId" jdbcType="INTEGER" />
     <result column="organize_name" property="organizeName" jdbcType="VARCHAR" />

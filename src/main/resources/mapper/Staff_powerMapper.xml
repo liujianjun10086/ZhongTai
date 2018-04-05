@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.Staff_powerMapper" >
+<mapper namespace="cn.lanya.dao.Staff_powerMapper" >
   <resultMap id="BaseResultMap" type="cn.lanya.po.Staff_power" >
     <id column="staff_power_id" property="staffPowerId" jdbcType="INTEGER" />
     <result column="staff_power_jnum" property="staffPowerJnum" jdbcType="VARCHAR" />

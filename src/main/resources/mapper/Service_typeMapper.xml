@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.Service_typeMapper" >
+<mapper namespace="cn.lanya.dao.Service_typeMapper" >
   <resultMap id="BaseResultMap" type="cn.lanya.po.Service_type" >
     <id column="service_type_id" property="serviceTypeId" jdbcType="INTEGER" />
     <result column="service_type_name" property="serviceTypeName" jdbcType="VARCHAR" />
