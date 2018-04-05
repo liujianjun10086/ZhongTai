@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <property name="suppressTypeWarnings" value="true" />
+        <!-- 使用插件：生成po类时，让类实现序列化接口 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- 使用插件：生成po类时，给类添加toString函数 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 配置数据库连接 -->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/lanyazhongtai"
+                        userId="root"
+                        password="mysqlpass">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 指定javaBean生成的位置 -->
+
+        <javaModelGenerator
+                targetPackage="cn.lanya.po"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 指定sql映射文件生成的位置 -->
+
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+
+        <!-- 指定dao接口生成的位置，mapper的接口 -->
+        <javaClientGenerator
+                type="XMLMAPPER"
+                targetPackage="cn.lanya.dao"
+                targetProject=".\src\main">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- table指定生成每个表的生成策略 -->
+        <table tableName="application" domainObjectName="Application"></table>
+        <table tableName="authority" domainObjectName="Authority"></table>
+        <table tableName="customer" domainObjectName="Customer"></table>
+        <table tableName="depart" domainObjectName="Depart"></table>
+        <table tableName="groups" domainObjectName="Groups"></table>
+        <table tableName="message" domainObjectName="Message"></table>
+        <table tableName="mission" domainObjectName="Mission"></table>
+        <table tableName="orders" domainObjectName="Orders"></table>
+        <table tableName="organize" domainObjectName="Organize"></table>
+        <table tableName="power" domainObjectName="Power"></table>
+        <table tableName="progress" domainObjectName="Progress"></table>
+        <table tableName="record" domainObjectName="Record"></table>
+        <table tableName="service_type" domainObjectName="Service_type"></table>
+        <table tableName="staff" domainObjectName="Staff"></table>
+        <table tableName="staff_power" domainObjectName="Staff_power"></table>
+        <table tableName="state" domainObjectName="State"></table>
+    </context>
+</generatorConfiguration>
