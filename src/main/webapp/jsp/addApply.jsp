@@ -66,6 +66,7 @@
           line-height: 40px;
           margin-bottom: 0px;
           font-weight: bold;
+          text-indent: 10px;
       }
         .kh{
             padding:10px;
@@ -82,10 +83,21 @@
             margin-top:10px;
         }
         .control-group{
+            margin-top:5px ;
             border-top: 1px dashed #ccc;
+
         }
         .control-group:first-child{
             border-top: none;
+        }
+        input{
+            border:1px solid #ccc;
+            width:100%;
+            height:30px;
+            border-radius: 4px;
+        }
+        .select{
+            width:100%;
         }
     </style>
 </head>
@@ -107,52 +119,61 @@
                     <h5>客户信息</h5>
                 </div>
                 <div class="widget-content nopadding  frm">
-                    <form action="#" method="post" class="form-horizontal kh">
-                        <div class="control-group">
-                            <label for="normal" class="control-label">编号</label>
-                            <div class="controls">
-                                <input type="text" id="id" name="id" value="201802" class="span8 mask text" readonly="readonly">
-                                 </div>
-                        </div>
+                    <form action="${pageContext.request.contextPath}/apply.action" method="post" role="form" class="form-horizontal kh">
                         <div class="control-group">
                             <label for="normal" class="control-label">姓名</label>
                             <div class="controls">
-                                <input type="text" id="username" name="username" value="李四" class="span8 mask text" readonly="readonly">
+                                <input type="text" id="username" name="username" class="span8 mask text input-xlarge">
                                </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">电话</label>
                             <div class="controls">
-                                <input type="text" id="phone" name="phone" value="15828645026" class="span8 mask text" readonly="readonly">
+                                <input type="text" id="phone" name="phone" class="span8 mask text input-xlarge" >
                                 </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">身份证</label>
                             <div class="controls">
-                                <input type="text" id="idccard" name="idcard" value="5110273778338272" class="span8 mask text" readonly="readonly">
+                                <input type="text" id="idcard" name="idcard"  class="span8 mask text">
                                 </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">申请金额</label>
                             <div class="controls">
-                                <input type="text" id="applemoney" name="applymoney" value="50000" class="span8 mask text" readonly="readonly">
+                                <input type="text" id="applemoney" name="applymoney" class="input-xlarge span8 mask text">
                                </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="normal" class="control-label">放款机构</label>
-                            <div class="controls">
-                               <select name="selectType">
-                                   <option>大树消费</option>
-                                   <option>平安银行</option>
-                                   <option>电信银行</option>
-                                   <option>光大银行</option>
+                </div>
+                        <div class="control-group ">
+                            <label for="normal" class="control-label" style="left:0px;">放款机构</label>
+                            <div class="controls form-group" style="display:inline-block;width:100%;">
+                               <select name="selectType" style="margin-left:15px;width:100%;height: 30px;margin-bottom: -12px;" class="form-control select">
+                                   <option value="1">大树消费</option>
+                                   <option value="2">平安银行</option>
+                                   <option value="3">电信银行</option>
+                                   <option value="4">光大银行</option>
                                </select>
                                 </div>
+                        </div>
+                        <div class="control-group " >
+                            <label for="normal" class="control-label">审批进度</label>
+                            <div class="controls form-group" style="display:inline-block;width:100%;">
+                                <select name="progress" style="margin-left:15px;width:100%;height: 30px;margin-bottom: -12px;" class="form-control select">
+                                    <option>进件中</option>
+                                    <option>进件完成</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="normal" class="control-label">推荐人</label>
+                            <div class="controls">
+                                <input type="text" id="referee" name="referee" class="input-xlarge span8 mask text">
+                            </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">办理时间</label>
                             <div class="controls">
-                                <input type="text" id="mask-eyeScript" name="date" value="2018-02-21 02:20:11" class="span8 mask text" readonly="readonly">
+                                <input type="text" id="mask-eyeScript" name="date"  class="input-xlarge span8 mask text">
                                </div>
                         </div>
                         <div class="tools">
@@ -161,7 +182,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -185,8 +205,11 @@
 
 </div>
 
-<script type="text/javascript">
 
-</script>
 </body>
 </html>
+<script type="text/javascript">
+  
+
+
+</script>
