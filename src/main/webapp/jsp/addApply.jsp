@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false"%>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -119,7 +121,7 @@
                     <h5>客户信息</h5>
                 </div>
                 <div class="widget-content nopadding  frm">
-                    <form action="${pageContext.request.contextPath}/apply.action" method="post" role="form" class="form-horizontal kh">
+                    <form action="${pageContext.request.contextPath}/apply" method="post" role="form" class="form-horizontal kh">
                         <div class="control-group">
                             <label for="normal" class="control-label">姓名</label>
                             <div class="controls">
@@ -148,10 +150,9 @@
                             <label for="normal" class="control-label" style="left:0px;">放款机构</label>
                             <div class="controls form-group" style="display:inline-block;width:100%;">
                                <select name="selectType" style="margin-left:15px;width:100%;height: 30px;margin-bottom: -12px;" class="form-control select">
-                                   <option value="1">大树消费</option>
-                                   <option value="2">平安银行</option>
-                                   <option value="3">电信银行</option>
-                                   <option value="4">光大银行</option>
+                                  <c:forEach var="organizeList" items="${organizeList}">
+                                      <option value="${organizeList.organizeId}">${organizeList.organizeName}</option>
+                                  </c:forEach>
                                </select>
                                 </div>
                         </div>
@@ -159,8 +160,9 @@
                             <label for="normal" class="control-label">审批进度</label>
                             <div class="controls form-group" style="display:inline-block;width:100%;">
                                 <select name="progress" style="margin-left:15px;width:100%;height: 30px;margin-bottom: -12px;" class="form-control select">
-                                    <option>进件中</option>
-                                    <option>进件完成</option>
+                                   <c:forEach var="progressList" items="${progressList}">
+                                       <option value="${progressList.progressId}">${progressList.progressName}</option>
+                                   </c:forEach>
                                 </select>
                             </div>
                         </div>
@@ -177,7 +179,7 @@
                                </div>
                         </div>
                         <div class="tools">
-                                    <input type="submit" value="提交" class="sub"/>
+                                    <input id="submit" type="submit" value="提交" class="sub"/>
                         </div>
                     </form>
                 </div>
@@ -202,14 +204,17 @@
     </div>
 
 </div>
-
 </div>
-
-
 </body>
 </html>
 <script type="text/javascript">
-  
-
+   $(function () {
+           var res ="<%=session.getAttribute("result")%>";
+           if(res!=null){
+               if(res==1){
+                   alert("添加成功");
+               }
+           }
+   });
 
 </script>
