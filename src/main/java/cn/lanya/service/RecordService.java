@@ -4,6 +4,7 @@ import cn.lanya.po.Record;
 import java.util.List;
 
 public interface RecordService {
+
     List<Record> getAll();
 
     int addRecord(Record record);
