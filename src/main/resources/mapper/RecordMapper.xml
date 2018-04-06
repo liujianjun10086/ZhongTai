@@ -59,4 +59,11 @@
     record_staff, record_referee, record_datetime
     from record
   </select>
+
+  <insert id="insertRecord" parameterType="cn.lanya.po.Record">
+    INSERT  INTO
+     record(record_customer_name,record_customer_phone,record_customer_num,record_organize,record_apply,record_progress,record_granted,record_commision,record_staff,record_referee,record_datetime)
+      values(#{recordCustomerName},#{recordCustomerPhone},#{recordCustomerNum},#{recordOrganize},#{recordApply},#{recordProgress},#{recordGranted},#{recordCommision},#{recordStaff},#{recordReferee},#{recordDatetime})
+
+  </insert>
 </mapper>
