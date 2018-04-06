@@ -13,4 +13,8 @@ public interface RecordMapper {
     List<Record> selectAll();
 
     int updateByPrimaryKey(Record record);
+
+    //新增审批 ljj
+    int insertRecord(Record record);
+
 }
