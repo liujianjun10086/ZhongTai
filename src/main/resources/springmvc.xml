@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     <!--扫描包-->
-    <context:component-scan base-package="cn.lanya.controllor"/>
+    <context:component-scan base-package="cn.lanya.controller"/>
     <!--加载驱动-->
     <mvc:annotation-driven/>
 
