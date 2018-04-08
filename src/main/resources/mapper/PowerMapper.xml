@@ -6,6 +6,12 @@
     <result column="power_num" property="powerNum" jdbcType="INTEGER" />
     <result column="power_item" property="powerItem" jdbcType="VARCHAR" />
     <result column="power_url" property="powerUrl" jdbcType="VARCHAR" />
+    <result column="power_module" property="moduleid" javaType="INTEGER"/>
+    <association property="module" javaType="cn.lanya.po.Module">
+      <id column="module_id" jdbcType="INTEGER" property="moduleId" />
+      <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+      <result column="module_url" jdbcType="VARCHAR" property="moduleUrl" />
+    </association>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from power
@@ -32,5 +38,10 @@
   <select id="selectAll" resultMap="BaseResultMap" >
     select power_id, power_num, power_item, power_url
     from power
+  </select>
+  <select id="selectByStaffJnum" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT c.*
+    FROM staff a,staff_power b,POWER c
+     WHERE a.staff_jnum=b.staff_jnum AND b.staff_power_num=c.power_id AND a.staff_jnum=#{staffJnum}
   </select>
 </mapper>

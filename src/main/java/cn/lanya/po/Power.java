@@ -11,7 +11,19 @@ public class Power implements Serializable {
 
     private String powerUrl;
 
+    private Module module;
+
+    private Integer moduleid;
+
     private static final long serialVersionUID = 1L;
+
+    public Integer getModuleid() {
+        return moduleid;
+    }
+
+    public void setModuleid(Integer moduleid) {
+        this.moduleid = moduleid;
+    }
 
     public Integer getPowerId() {
         return powerId;
@@ -43,6 +55,14 @@ public class Power implements Serializable {
 
     public void setPowerUrl(String powerUrl) {
         this.powerUrl = powerUrl == null ? null : powerUrl.trim();
+    }
+
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
     }
 
     @Override

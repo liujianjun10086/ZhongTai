@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -31,42 +32,52 @@ $(function(){
 </head>
 
 <body style="background:#f0f9fd;">
+
 	<div class="lefttop"><span></span>通讯录</div>
     
     <dl class="leftmenu">
         
-    <dd>
-    <div class="title">
-    <span><img src="${pageContext.request.contextPath}/images/leftico01.png" /></span>审批管理
-    </div>
-    	<ul class="menuson">
-        <li class="active"><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">查看审批列表</a><i></i></li>
-        <li><cite></cite><a href="${pageContext.request.contextPath}/getSelectRecordByRecord_staff?staffJnum=${staff.staffJnum}" target="rightFrame">个人审批列表</a><i></i></li>
-            <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">小组审批列表</a><i></i></li>
-            <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">部门审批列表</a><i></i></li>
-<<<<<<< HEAD
-            <li><cite></cite><a href="${pageContext.request.contextPath}/addApply" target="rightFrame">审批添加</a><i></i></li>
-            <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/getSelectRecordByRecord_staff.jsp" target="rightFrame">待审批列表</a><i></i></li>
-=======
-            <li><cite></cite><a href="${pageContext.request.contextPath}/application/getallapply" target="rightFrame">待审批列表</a><i></i></li>
->>>>>>> 8db7985036c687add5c8a1a23e165c9f39eedb41
-        <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/form.jsp" target="rightFrame">机构添加</a><i></i></li>
-        <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imglist.jsp" target="rightFrame">进度添加</a><i></i></li>
-        </ul>
-    </dd>
-    
-    <dd><div class="title"><span><img src="${pageContext.request.contextPath}/images/leftico03.png" /></span>申请管理</div>
-    <ul class="menuson">
-        <li><cite></cite><a href="#">申请列表</a><i></i></li>
-        </ul>     
-    </dd>
-    
-    <dd><div class="title"><span><img src="${pageContext.request.contextPath}/images/leftico02.png" /></span>客户管理</div>
-    <ul class="menuson">
-        <li><cite></cite><a href="#">客户列表</a><i></i></li>
-    </ul>    
-    </dd>
-    
+    <%--<dd>--%>
+    <%--<div class="title">--%>
+    <%--<span><img src="${pageContext.request.contextPath}/images/leftico01.png" /></span>审批管理--%>
+    <%--</div>--%>
+    	<%--<ul class="menuson">--%>
+        <%--<li class="active"><cite></cite><a href="${pageContext.request.contextPath}/jsp/right.jsp" target="rightFrame">查看审批列表</a><i></i></li>--%>
+        <%--<li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">个人审批列表</a><i></i></li>--%>
+            <%--<li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">小组审批列表</a><i></i></li>--%>
+            <%--<li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">部门审批列表</a><i></i></li>--%>
+            <%--<li><cite></cite><a href="${pageContext.request.contextPath}/application/addApply" target="rightFrame">审批添加</a><i></i></li>--%>
+            <%--<li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">待审批列表</a><i></i></li>--%>
+        <%--<li><cite></cite><a href="${pageContext.request.contextPath}/jsp/form.jsp" target="rightFrame">机构添加</a><i></i></li>--%>
+        <%--<li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imglist.jsp" target="rightFrame">进度添加</a><i></i></li>--%>
+        <%--</ul>    --%>
+    <%--</dd>--%>
+    <%----%>
+    <%--<dd><div class="title"><span><img src="${pageContext.request.contextPath}/images/leftico03.png" /></span>申请管理</div>--%>
+    <%--<ul class="menuson">--%>
+        <%--<li><cite></cite><a href="#">申请列表</a><i></i></li>--%>
+        <%--</ul>     --%>
+    <%--</dd>--%>
+    <%----%>
+    <%--<dd><div class="title"><span><img src="${pageContext.request.contextPath}/images/leftico02.png" /></span>客户管理</div>--%>
+    <%--<ul class="menuson">--%>
+        <%--<li><cite></cite><a href="#">客户列表</a><i></i></li>--%>
+    <%--</ul>    --%>
+    <%--</dd>--%>
+     <c:forEach var="moduleList" items="${moduleList}" varStatus="i">
+        <dd><div class="title"><span><img src="${pageContext.request.contextPath}/images/leftico02.png" /></span>${moduleList.moduleName}</div>
+            <ul class="menuson">
+                <%--<li><cite></cite><a href="#">客户列表</a><i></i></li>--%>
+                    <c:forEach var="powerList" items="${powerList}">
+                        <%--${powerList.module.moduleId}--%>
+                        <c:if test="${moduleList.moduleId eq powerList.moduleid}">
+                        <li><cite></cite><a href="${powerList.powerUrl}">${powerList.powerItem}</a><i></i></li>
+                        </c:if>
+                    </c:forEach>
+
+            </ul>
+        </dd>
+      </c:forEach>
     </dl>
 </body>
 </html>

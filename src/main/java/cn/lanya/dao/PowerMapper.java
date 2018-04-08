@@ -13,4 +13,6 @@ public interface PowerMapper {
     List<Power> selectAll();
 
     int updateByPrimaryKey(Power record);
+    //查询功能
+    List<Power> selectByStaffJnum(String staffJnum);
 }

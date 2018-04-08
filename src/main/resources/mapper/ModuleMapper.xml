@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.lanya.dao.ModuleMapper">
+  <resultMap id="BaseResultMap" type="cn.lanya.po.Module">
+    <id column="module_id" jdbcType="INTEGER" property="moduleId" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+    <result column="module_url" jdbcType="VARCHAR" property="moduleUrl" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from module
+    where module_id = #{moduleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.lanya.po.Module">
+    insert into module (module_id, module_name, module_url
+      )
+    values (#{moduleId,jdbcType=INTEGER}, #{moduleName,jdbcType=VARCHAR}, #{moduleUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Module">
+    update module
+    set module_name = #{moduleName,jdbcType=VARCHAR},
+      module_url = #{moduleUrl,jdbcType=VARCHAR}
+    where module_id = #{moduleId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select module_id, module_name, module_url
+    from module
+    where module_id = #{moduleId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select module_id, module_name, module_url
+    from module
+  </select>
+  <select id="selectByStaffJnum" parameterType="java.lang.String" resultMap="BaseResultMap">
+     SELECT d.module_name,d.module_id,d.module_url
+     FROM staff a,staff_power b,POWER c,module d
+     WHERE a.staff_jnum=b.staff_jnum AND b.staff_power_num=c.power_id AND c.power_module=d.module_id AND a.staff_jnum=#{staffJnum}
+     GROUP BY d.module_id
+  </select>
+</mapper>
