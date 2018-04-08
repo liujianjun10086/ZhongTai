@@ -11,8 +11,13 @@ import java.util.List;
 @Service
 public class ApplicationServiceImpl implements ApplicationService {
 
+
     @Autowired
     private ApplicationMapper mapper;
+
+
+    @Autowired
+    private ApplicationMapper applicationMapper;
 
     @Override
     public int addApplication(Application application) {
@@ -22,6 +27,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public int deleteById(Integer id) {
         return mapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Application getApplicationById(int id) {
+        return applicationMapper.selectByPrimaryKey(id);
     }
 
     @Override
