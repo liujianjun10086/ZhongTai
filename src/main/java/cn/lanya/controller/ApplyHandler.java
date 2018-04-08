@@ -79,7 +79,15 @@ public class ApplyHandler {
         return "error";
     }
 
-
+    //获取员工工号并进行查询员工个人订单zp
+    @RequestMapping("/getSelectRecordByRecord_staff")
+    public  String getSelectRecordByRecord_staff(HttpServletRequest request,HttpSession session){
+        String staffJnum = request.getParameter("staffJnum");
+        List<Record> list = recordService.getSelectRecordByRecord_staff(staffJnum);
+        session = request.getSession();
+        session.setAttribute("personalList",list);
+        return "getSelectRecordByRecord_staff";
+    }
 
 
 }
