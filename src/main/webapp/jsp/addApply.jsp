@@ -117,6 +117,12 @@
                 </div>
                 <div class="widget-content nopadding  frm">
                     <form action="${pageContext.request.contextPath}/application/apply" method="post" role="form" class="form-horizontal kh">
+                        <div class="control-group" style="display: none;">
+                            <label for="normal" class="control-label">姓名</label>
+                            <div class="controls">
+                                <input type="text" id="id" name="id" value="${application.applicationUsername}" readonly="readonly" class="span8 mask text input-xlarge">
+                            </div>
+                        </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">姓名</label>
                             <div class="controls">

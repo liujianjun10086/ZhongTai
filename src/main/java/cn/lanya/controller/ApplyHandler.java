@@ -1,16 +1,13 @@
 package cn.lanya.controller;
 
-import cn.lanya.po.Application;
 import cn.lanya.po.Organize;
 import cn.lanya.po.Progress;
 import cn.lanya.po.Record;
-import cn.lanya.service.ApplicationService;
 import cn.lanya.service.OrganizeService;
 import cn.lanya.service.ProgressService;
 import cn.lanya.service.RecordService;
 import cn.lanya.util.DateTools;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +21,6 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-@RequestMapping("/application")
 @Controller
 public class ApplyHandler {
 
@@ -34,8 +30,6 @@ public class ApplyHandler {
     private OrganizeService organizeService;
     @Autowired
     private ProgressService progressService;
-    @Autowired
-    private ApplicationService applicationService;
 
     //获取所有机构选项
     private List<Organize> organizeModel(){
@@ -86,31 +80,6 @@ public class ApplyHandler {
     }
 
 
-    @RequestMapping(value = "/searchapply", method = RequestMethod.POST)
-    public ModelAndView searchApply(HttpServletRequest request){
-        ModelAndView model = new ModelAndView();
-        Application application = new Application();
-        if (request.getParameter("cname")!=""){
-            application.setApplicationUsername("%"+request.getParameter("cname")+"%");
-        }
-        if (request.getParameter("cphone")!=""){
-            application.setApplicationPhone("%"+request.getParameter("cphone")+"%");
-        }
-        if (request.getParameter("cnumber")!=""){
-            application.setApplicationNumber("%"+request.getParameter("cphone")+"%");
-        }
-        List<Application> list = applicationService.getByInfo(application);
-        model.addObject("applyList",list);
-        model.setViewName("applylist");
-        return model;
-    }
 
-    @RequestMapping("/getallapply")
-    public ModelAndView showAllApply(){
-        ModelAndView model = new ModelAndView();
-        List<Application> list = applicationService.getAll();
-        model.addObject("applyList",list);
-        model.setViewName("applylist");
-        return model;
-    }
+
 }
