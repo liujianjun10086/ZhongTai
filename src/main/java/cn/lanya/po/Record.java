@@ -14,9 +14,13 @@ public class Record implements Serializable {
 
     private Integer recordOrganize;
 
+    private Organize organize;
+
     private Double recordApply;
 
     private Integer recordProgress;
+
+    private Progress progress;
 
     private Double recordGranted;
 
@@ -70,6 +74,14 @@ public class Record implements Serializable {
         this.recordOrganize = recordOrganize;
     }
 
+    public cn.lanya.po.Organize getorganize() {
+        return organize;
+    }
+
+    public void setOrganize(cn.lanya.po.Organize organize) {
+        this.organize = organize;
+    }
+
     public Double getRecordApply() {
         return recordApply;
     }
@@ -84,6 +96,14 @@ public class Record implements Serializable {
 
     public void setRecordProgress(Integer recordProgress) {
         this.recordProgress = recordProgress;
+    }
+
+    public cn.lanya.po.Progress getprogress() {
+        return progress;
+    }
+
+    public void setProgress(cn.lanya.po.Progress progress) {
+       this.progress = progress;
     }
 
     public Double getRecordGranted() {
@@ -128,24 +148,21 @@ public class Record implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", recordId=").append(recordId);
-        sb.append(", recordCustomerName=").append(recordCustomerName);
-        sb.append(", recordCustomerPhone=").append(recordCustomerPhone);
-        sb.append(", recordCustomerNum=").append(recordCustomerNum);
-        sb.append(", recordOrganize=").append(recordOrganize);
-        sb.append(", recordApply=").append(recordApply);
-        sb.append(", recordProgress=").append(recordProgress);
-        sb.append(", recordGranted=").append(recordGranted);
-        sb.append(", recordCommision=").append(recordCommision);
-        sb.append(", recordStaff=").append(recordStaff);
-        sb.append(", recordReferee=").append(recordReferee);
-        sb.append(", recordDatetime=").append(recordDatetime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return "Record{" +
+                "recordId=" + recordId +
+                ", recordCustomerName='" + recordCustomerName + '\'' +
+                ", recordCustomerPhone='" + recordCustomerPhone + '\'' +
+                ", recordCustomerNum='" + recordCustomerNum + '\'' +
+                ", recordOrganize=" + recordOrganize +
+                ", Organize=" + organize +
+                ", recordApply=" + recordApply +
+                ", recordProgress=" + recordProgress +
+                ", Progress=" + progress +
+                ", recordGranted=" + recordGranted +
+                ", recordCommision=" + recordCommision +
+                ", recordStaff='" + recordStaff + '\'' +
+                ", recordReferee='" + recordReferee + '\'' +
+                ", recordDatetime=" + recordDatetime +
+                '}';
     }
 }
