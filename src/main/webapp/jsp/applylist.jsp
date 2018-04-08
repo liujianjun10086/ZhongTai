@@ -78,7 +78,7 @@
             <td>${apply.applicationPhone}</td>
             <td>${apply.applicationNumber}</td>
             <td>${apply.applicationMoney}</td>
-            <td><a href="${pageContext.request.contextPath}/application/addApply?id=${apply.applicationId}" class="tablelink">添加</a></td>
+            <td><a href="${pageContext.request.contextPath}/application/addApply?id=${apply.applicationId}" class="tablelink">添加审批</a></td>
         </tr>
         </c:forEach>
         </tbody>
