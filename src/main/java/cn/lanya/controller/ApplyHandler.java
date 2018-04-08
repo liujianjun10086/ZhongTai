@@ -104,6 +104,7 @@ public class ApplyHandler {
         session.setAttribute("personalList",list);
         return "getSelectRecordByRecord_staff";
 
+
     }
 
     @RequestMapping(value = "/searchapply", method = RequestMethod.POST)
