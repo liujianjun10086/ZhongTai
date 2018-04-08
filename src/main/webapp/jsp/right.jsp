@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -60,129 +62,34 @@ $(document).ready(function(){
         <th>申请金额</th>
         <th>放款机构</th>
         <th>审批进度</th>
+        <th>办理人</th>
+        <th>推荐人</th>
         <th>办理时间</th>
         <th>操作</th>
         </tr>
         </thead>
+        <c:forEach var="list" items="${personalList}">
         <tbody>
         <tr>
-        <td>201801</td>
-        <td>张三</td>
-        <td>15876656366</td>
-        <td>511027372778338272</td>
-        <td>40000</td>
-        <td>平安银行</td>
-        <td>进件中</td>
-        <td>2018-01-02 09:51:47</td>
-        <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
+            <td>${list.recordId}</td>
+            <td>${list.recordCustomerName}</td>
+            <td>${list.recordCustomerPhone}</td>
+            <td>${list.recordCustomerNum}</td>
+            <td>${list.recordApply}</td>
+            <td>${list.organize.organizeName}</td>
+            <td>${list.progress.progressName}</td>
+            <td>${list.recordStaff}</td>
+            <td>${list.recordReferee}</td>
+            <td>${list.recordDatetime}</td>
             <td><a href="#" class="tablelink">修改</a></td>
         </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-        <tr>
-            <td>201801</td>
-            <td>张三</td>
-            <td>15876656366</td>
-            <td>511027372778338272</td>
-            <td>40000</td>
-            <td>平安银行</td>
-            <td>进件中</td>
-            <td>2018-01-02 09:51:47</td>
-            <td><a href="#" class="tablelink">修改</a></td>
-        </tr>
-
         </tbody>
+        </c:forEach>
     </table>
     
    
     <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+    	<div class="message">共<i class="blue">X</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
         <li class="paginItem"><a href="javascript:;">1</a></li>
@@ -215,9 +122,7 @@ $(document).ready(function(){
     
     </div>
     
-    
-    
-    
+
     </div>
     
     <script type="text/javascript">
