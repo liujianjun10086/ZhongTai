@@ -87,6 +87,7 @@ public class ApplyHandler {
         session = request.getSession();
         session.setAttribute("personalList",list);
         return "getSelectRecordByRecord_staff";
+
     }
 
 
