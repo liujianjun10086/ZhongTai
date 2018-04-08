@@ -17,6 +17,7 @@ public interface RecordMapper {
     //通过工号查询员工个人审批列表
    List<Record> selectRecordByRecord_staff(String staffJnum);
 
+
     //新增审批 ljj
     int insertRecord(Record record);
 
