@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface ApplicationService {
 
-    int addApplication();
+    int addApplication(Application application);
 
-    int deleteById();
+    int deleteById(Integer id);
 
     List<Application> getAll();
 
     List<Application> getByInfo(Application application);
 
-    Application getById();
+    Application getById(Integer id);
 }
