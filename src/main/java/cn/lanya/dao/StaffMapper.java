@@ -15,4 +15,6 @@ public interface StaffMapper {
     int updateByPrimaryKey(Staff record);
 
     Staff selectByStaff(Staff staff);
+
+    Staff selectByStaff_num(int id);
 }

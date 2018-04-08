@@ -4,31 +4,29 @@
   <resultMap id="BaseResultMap" type="cn.lanya.po.Authority" >
     <id column="authority_id" property="authorityId" jdbcType="INTEGER" />
     <result column="authority_name" property="authorityName" jdbcType="VARCHAR" />
-    <result column="authority_power" property="authorityPower" jdbcType="INTEGER" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from authority
     where authority_id = #{authorityId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.lanya.po.Authority" >
-    insert into authority (authority_id, authority_name, authority_power
+    insert into authority ( authority_name
       )
-    values (#{authorityId,jdbcType=INTEGER}, #{authorityName,jdbcType=VARCHAR}, #{authorityPower,jdbcType=INTEGER}
+    values ( #{authorityName,jdbcType=VARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Authority" >
     update authority
-    set authority_name = #{authorityName,jdbcType=VARCHAR},
-      authority_power = #{authorityPower,jdbcType=INTEGER}
+    set authority_name = #{authorityName,jdbcType=VARCHAR}
     where authority_id = #{authorityId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select authority_id, authority_name, authority_power
+    select authority_id, authority_name
     from authority
     where authority_id = #{authorityId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select authority_id, authority_name, authority_power
+    select authority_id, authority_name
     from authority
   </select>
 </mapper>

@@ -44,8 +44,12 @@ $(function(){
         <li><cite></cite><a href="${pageContext.request.contextPath}/getSelectRecordByRecord_staff?staffJnum=${staff.staffJnum}" target="rightFrame">个人审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">小组审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">部门审批列表</a><i></i></li>
+<<<<<<< HEAD
             <li><cite></cite><a href="${pageContext.request.contextPath}/addApply" target="rightFrame">审批添加</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/getSelectRecordByRecord_staff.jsp" target="rightFrame">待审批列表</a><i></i></li>
+=======
+            <li><cite></cite><a href="${pageContext.request.contextPath}/application/getallapply" target="rightFrame">待审批列表</a><i></i></li>
+>>>>>>> 8db7985036c687add5c8a1a23e165c9f39eedb41
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/form.jsp" target="rightFrame">机构添加</a><i></i></li>
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imglist.jsp" target="rightFrame">进度添加</a><i></i></li>
         </ul>

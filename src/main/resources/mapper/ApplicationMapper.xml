@@ -20,14 +20,6 @@
       #{applicationPhone,jdbcType=VARCHAR}, #{applicationNumber,jdbcType=VARCHAR}, #{applicationMoney,jdbcType=DOUBLE}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Application" >
-    update application
-    set application_username = #{applicationUsername,jdbcType=VARCHAR},
-      application_phone = #{applicationPhone,jdbcType=VARCHAR},
-      application_number = #{applicationNumber,jdbcType=VARCHAR},
-      application_money = #{applicationMoney,jdbcType=DOUBLE}
-    where application_id = #{applicationId,jdbcType=INTEGER}
-  </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select application_id, application_username, application_phone, application_number, 
     application_money
@@ -38,5 +30,30 @@
     select application_id, application_username, application_phone, application_number, 
     application_money
     from application
+  </select>
+  <select id="selectByInfo" resultMap="BaseResultMap" parameterType="cn.lanya.po.Application">
+    SELECT * FROM application
+    <if test="applicationUsername != null || applicationPhone != null || applicationNumber != null">
+      WHERE
+    </if>
+    <if test="applicationUsername != null">
+       application_username LIKE #{applicationUsername}
+    </if>
+    <if test="applicationUsername != null">
+      <if test="applicationPhone != null">
+        AND
+      </if>
+    </if>
+    <if test="applicationPhone != null ">
+      application_phone LIKE #{applicationPhone}
+    </if>
+    <if test="applicationUsername != null || applicationPhone != null">
+      <if test="applicationNumber != null">
+        AND
+      </if>
+    </if>
+    <if test="applicationNumber != null">
+      application_number LIKE #{applicationNumber}
+    </if>
   </select>
 </mapper>

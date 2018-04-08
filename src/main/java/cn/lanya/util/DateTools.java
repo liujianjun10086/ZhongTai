@@ -8,8 +8,8 @@ import java.util.Date;
 public class DateTools {
 
     public static Date getDate(String str){
-        SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
-        Date date = null;
+        SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzz yyyy");
+        Date date =null;
         try {
             Date newDate =sdf.parse(str);
             date = new Date(newDate.getTime());
