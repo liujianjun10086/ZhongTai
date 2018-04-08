@@ -44,7 +44,6 @@ $(function(){
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">个人审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">小组审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">部门审批列表</a><i></i></li>
-            <li><cite></cite><a href="${pageContext.request.contextPath}/application/addApply" target="rightFrame">审批添加</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">待审批列表</a><i></i></li>
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/form.jsp" target="rightFrame">机构添加</a><i></i></li>
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imglist.jsp" target="rightFrame">进度添加</a><i></i></li>
