@@ -33,14 +33,27 @@
   </select>
   <select id="selectByInfo" resultMap="BaseResultMap" parameterType="cn.lanya.po.Application">
     SELECT * FROM application
+    <if test="applicationUsername != null || applicationPhone != null || applicationNumber != null">
+      WHERE
+    </if>
     <if test="applicationUsername != null">
-      WHERE application_username LIKE #{applicationUsername}
+       application_username LIKE #{applicationUsername}
+    </if>
+    <if test="applicationUsername != null">
+      <if test="applicationPhone != null">
+        AND
+      </if>
     </if>
     <if test="applicationPhone != null ">
-      WHERE application_phone LIKE #{applicationPhone}
+      application_phone LIKE #{applicationPhone}
+    </if>
+    <if test="applicationUsername != null || applicationPhone != null">
+      <if test="applicationNumber != null">
+        AND
+      </if>
     </if>
     <if test="applicationNumber != null">
-      WHERE application_number LIKE #{applicationNumber}
+      application_number LIKE #{applicationNumber}
     </if>
   </select>
 </mapper>
