@@ -87,6 +87,7 @@ public class ApplyHandler {
             session.setAttribute("result",count);
             int cot =applicationService.deleteById(Integer.parseInt(id));
             if(cot>0){
+
                 System.out.print("删除成功");
             }
             return "addApply";
