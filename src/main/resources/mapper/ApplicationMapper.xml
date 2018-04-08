@@ -32,15 +32,15 @@
     from application
   </select>
   <select id="selectByInfo" resultMap="BaseResultMap" parameterType="cn.lanya.po.Application">
-    SELECT * FROM application WHERE
+    SELECT * FROM application
     <if test="applicationUsername != null">
-      application_username LIKE #{applicationUsername}
+      WHERE application_username LIKE #{applicationUsername}
     </if>
     <if test="applicationPhone != null ">
-      application_phone LIKE #{applicationPhone}
+      WHERE application_phone LIKE #{applicationPhone}
     </if>
     <if test="applicationNumber != null">
-      application_number LIKE #{applicationNumber}
+      WHERE application_number LIKE #{applicationNumber}
     </if>
   </select>
 </mapper>
