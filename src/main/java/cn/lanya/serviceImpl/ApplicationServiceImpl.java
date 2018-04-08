@@ -22,7 +22,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public List<Application> getByInfo(Object... str) {
+    public List<Application> getByInfo(Application application) {
         return null;
     }
 

@@ -12,6 +12,6 @@ public interface ApplicationMapper {
 
     List<Application> selectAll();
 
-    List<Application> selectByInfo(Object... str);
+    List<Application> selectByInfo(Application application);
 
 }

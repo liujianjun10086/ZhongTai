@@ -12,7 +12,7 @@ public interface ApplicationService {
 
     List<Application> getAll();
 
-    List<Application> getByInfo(Object... str);
+    List<Application> getByInfo(Application application);
 
     Application getById();
 }
