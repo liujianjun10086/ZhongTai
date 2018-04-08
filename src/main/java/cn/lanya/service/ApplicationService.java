@@ -14,5 +14,5 @@ public interface ApplicationService {
 
     List<Application> getByInfo(Application application);
 
-    Application getById();
+    Application getById(Integer id);
 }

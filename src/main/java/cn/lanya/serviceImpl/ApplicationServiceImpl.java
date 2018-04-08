@@ -27,7 +27,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public Application getById() {
+    public Application getById(Integer id) {
         return null;
     }
 }
