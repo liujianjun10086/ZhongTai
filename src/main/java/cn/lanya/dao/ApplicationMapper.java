@@ -12,5 +12,6 @@ public interface ApplicationMapper {
 
     List<Application> selectAll();
 
-    int updateByPrimaryKey(Application record);
+    List<Application> selectByInfo(Object... str);
+
 }
