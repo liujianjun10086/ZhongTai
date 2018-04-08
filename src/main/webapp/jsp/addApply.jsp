@@ -13,15 +13,10 @@
     <title>无标题</title>
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
 
-
-    <link
-            href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"
-            rel="stylesheet"
-    />
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-    <script
-            src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
     <script language="javascript">
         $(function(){
@@ -121,29 +116,29 @@
                     <h5>客户信息</h5>
                 </div>
                 <div class="widget-content nopadding  frm">
-                    <form action="${pageContext.request.contextPath}/apply" method="post" role="form" class="form-horizontal kh">
+                    <form action="${pageContext.request.contextPath}/application/apply" method="post" role="form" class="form-horizontal kh">
                         <div class="control-group">
                             <label for="normal" class="control-label">姓名</label>
                             <div class="controls">
-                                <input type="text" id="username" name="username" class="span8 mask text input-xlarge">
+                                <input type="text" id="username" name="username" value="${application.applicationUsername}" readonly="readonly" class="span8 mask text input-xlarge">
                                </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">电话</label>
                             <div class="controls">
-                                <input type="text" id="phone" name="phone" class="span8 mask text input-xlarge" >
+                                <input type="text" id="phone" name="phone" value="${applicaton.applicationPhone}" readonly="readonly" class="span8 mask text input-xlarge" >
                                 </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">身份证</label>
                             <div class="controls">
-                                <input type="text" id="idcard" name="idcard"  class="span8 mask text">
+                                <input type="text" id="idcard" name="idcard" value="${application.applicationNumber}"  readonly="readonly" class="span8 mask text">
                                 </div>
                         </div>
                         <div class="control-group">
                             <label for="normal" class="control-label">申请金额</label>
                             <div class="controls">
-                                <input type="text" id="applemoney" name="applymoney" class="input-xlarge span8 mask text">
+                                <input type="text" id="applemoney" name="applymoney" value="${application.applicationMoney}" readonly="readonly" class="input-xlarge span8 mask text">
                                </div>
                 </div>
                         <div class="control-group ">
@@ -169,14 +164,8 @@
                         <div class="control-group">
                             <label for="normal" class="control-label">推荐人</label>
                             <div class="controls">
-                                <input type="text" id="referee" name="referee" class="input-xlarge span8 mask text">
+                                <input type="text" id="referee" name="referee" value="${staff.staffName}" readonly="readonly" class="input-xlarge span8 mask text">
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="normal" class="control-label">办理时间</label>
-                            <div class="controls">
-                                <input type="text" id="mask-eyeScript" name="date"  class="input-xlarge span8 mask text">
-                               </div>
                         </div>
                         <div class="tools">
                                     <input id="submit" type="submit" value="提交" class="sub"/>
