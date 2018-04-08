@@ -33,6 +33,11 @@
 
         });
     </script>
+    <style type="text/css">
+        input{
+            border-bottom: 1px black solid;
+        }
+    </style>
 </head>
 <body>
 <div class="place">
@@ -73,7 +78,7 @@
             <td>${apply.applicationPhone}</td>
             <td>${apply.applicationNumber}</td>
             <td>${apply.applicationMoney}</td>
-            <td><a href="${pageContext.request.contextPath}/application/addApply?id= ${apply.applicationId}" class="tablelink">添加</a></td>
+            <td><a href="${pageContext.request.contextPath}/application/addApply?id=${apply.applicationId}" class="tablelink">添加</a></td>
         </tr>
         </c:forEach>
         </tbody>
@@ -94,5 +99,6 @@
             <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
     </div>
+</div>
 </body>
 </html>
