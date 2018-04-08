@@ -14,20 +14,29 @@
     <result column="record_staff" property="recordStaff" jdbcType="VARCHAR" />
     <result column="record_referee" property="recordReferee" jdbcType="VARCHAR" />
     <result column="record_datetime" property="recordDatetime" jdbcType="TIMESTAMP" />
+    <association property="organize" column="organize" javaType="cn.lanya.po.Organize">
+      <id column="organize_id" property="organizeId" jdbcType="INTEGER"/>
+      <result column="organize_name" property="organizeName" jdbcType="VARCHAR"/>
+      <result column="organize_ration" property="organizeRation" jdbcType="DOUBLE"/>
+    </association>
+    <association property="progress" column="progress" javaType="cn.lanya.po.Progress">
+      <id column="progress_id" property="progressId" jdbcType="INTEGER"/>
+      <result column="progress_name" property="progressName" jdbcType="VARCHAR"/>
+    </association>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from record
     where record_id = #{recordId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.lanya.po.Record" >
-    insert into record (record_id, record_customer_name, record_customer_phone, 
-      record_customer_num, record_organize, record_apply, 
-      record_progress, record_granted, record_commision, 
+    insert into record (record_id, record_customer_name, record_customer_phone,
+      record_customer_num, record_organize, record_apply,
+      record_progress, record_granted, record_commision,
       record_staff, record_referee, record_datetime
       )
-    values (#{recordId,jdbcType=INTEGER}, #{recordCustomerName,jdbcType=VARCHAR}, #{recordCustomerPhone,jdbcType=VARCHAR}, 
-      #{recordCustomerNum,jdbcType=VARCHAR}, #{recordOrganize,jdbcType=INTEGER}, #{recordApply,jdbcType=DOUBLE}, 
-      #{recordProgress,jdbcType=INTEGER}, #{recordGranted,jdbcType=DOUBLE}, #{recordCommision,jdbcType=DOUBLE}, 
+    values (#{recordId,jdbcType=INTEGER}, #{recordCustomerName,jdbcType=VARCHAR}, #{recordCustomerPhone,jdbcType=VARCHAR},
+      #{recordCustomerNum,jdbcType=VARCHAR}, #{recordOrganize,jdbcType=INTEGER}, #{recordApply,jdbcType=DOUBLE},
+      #{recordProgress,jdbcType=INTEGER}, #{recordGranted,jdbcType=DOUBLE}, #{recordCommision,jdbcType=DOUBLE},
       #{recordStaff,jdbcType=VARCHAR}, #{recordReferee,jdbcType=VARCHAR}, #{recordDatetime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -47,15 +56,15 @@
     where record_id = #{recordId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select record_id, record_customer_name, record_customer_phone, record_customer_num, 
-    record_organize, record_apply, record_progress, record_granted, record_commision, 
+    select record_id, record_customer_name, record_customer_phone, record_customer_num,
+    record_organize, record_apply, record_progress, record_granted, record_commision,
     record_staff, record_referee, record_datetime
     from record
     where record_id = #{recordId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select record_id, record_customer_name, record_customer_phone, record_customer_num, 
-    record_organize, record_apply, record_progress, record_granted, record_commision, 
+    select record_id, record_customer_name, record_customer_phone, record_customer_num,
+    record_organize, record_apply, record_progress, record_granted, record_commision,
     record_staff, record_referee, record_datetime
     from record
   </select>
@@ -66,4 +75,10 @@
       values(#{recordCustomerName},#{recordCustomerPhone},#{recordCustomerNum},#{recordOrganize},#{recordApply},#{recordProgress},#{recordGranted},#{recordCommision},#{recordStaff},#{recordReferee},#{recordDatetime})
 
   </insert>
+
+  <select id="selectRecordByRecord_staff" parameterType="java.lang.String" resultMap="BaseResultMap">
+   SELECT record_id,record_customer_name,record_customer_phone,record_customer_num,organize_id,organize_name,organize_ration,record_apply,progress_id,progress_name,record_granted,record_commision,record_staff,record_referee,record_datetime
+   FROM record,organize,progress
+   WHERE record_organize=organize_id AND record_progress=progress_id AND record.record_staff=#{recordStaff}
+  </select>
 </mapper>
