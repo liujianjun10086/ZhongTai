@@ -4,9 +4,11 @@ import cn.lanya.dao.ApplicationMapper;
 import cn.lanya.po.Application;
 import cn.lanya.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ApplicationServiceImpl implements ApplicationService {
 
     @Autowired
