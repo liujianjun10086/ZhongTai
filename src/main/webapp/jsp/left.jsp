@@ -40,15 +40,15 @@ $(function(){
     <span><img src="${pageContext.request.contextPath}/images/leftico01.png" /></span>审批管理
     </div>
     	<ul class="menuson">
-        <li class="active"><cite></cite><a href="${pageContext.request.contextPath}/jsp/right.jsp" target="rightFrame">查看审批列表</a><i></i></li>
-        <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">个人审批列表</a><i></i></li>
+        <li class="active"><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">查看审批列表</a><i></i></li>
+        <li><cite></cite><a href="${pageContext.request.contextPath}/getSelectRecordByRecord_staff?staffJnum=${staff.staffJnum}" target="rightFrame">个人审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">小组审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">部门审批列表</a><i></i></li>
             <li><cite></cite><a href="${pageContext.request.contextPath}/addApply" target="rightFrame">审批添加</a><i></i></li>
-            <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame">待审批列表</a><i></i></li>
+            <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/getSelectRecordByRecord_staff.jsp" target="rightFrame">待审批列表</a><i></i></li>
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/form.jsp" target="rightFrame">机构添加</a><i></i></li>
         <li><cite></cite><a href="${pageContext.request.contextPath}/jsp/imglist.jsp" target="rightFrame">进度添加</a><i></i></li>
-        </ul>    
+        </ul>
     </dd>
     
     <dd><div class="title"><span><img src="${pageContext.request.contextPath}/images/leftico03.png" /></span>申请管理</div>
