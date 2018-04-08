@@ -9,4 +9,6 @@ public interface RecordService {
 
     int addRecord(Record record);
 
+    List<Record> getSelectRecordByRecord_staff(String staffJnum);
+
 }
