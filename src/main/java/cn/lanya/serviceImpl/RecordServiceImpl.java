@@ -24,4 +24,9 @@ public class RecordServiceImpl implements RecordService {
     public int addRecord(Record record) {
         return recordMapper.insertRecord(record);
     }
+
+    @Override
+    public List<Record> getSelectRecordByRecord_staff(String staffJnum) {
+        return recordMapper.selectRecordByRecord_staff(staffJnum);
+    }
 }
