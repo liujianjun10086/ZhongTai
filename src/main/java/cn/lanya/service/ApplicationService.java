@@ -10,6 +10,8 @@ public interface ApplicationService {
 
     int deleteById(Integer id);
 
+    Application getApplicationById(int id);
+
     List<Application> getAll();
 
     List<Application> getByInfo(Application application);
