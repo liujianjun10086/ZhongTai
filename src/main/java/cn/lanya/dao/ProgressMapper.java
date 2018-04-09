@@ -6,7 +6,8 @@ import java.util.List;
 public interface ProgressMapper {
     int deleteByPrimaryKey(Integer progressId);
 
-    int insert(Progress record);
+//添加审批进度
+    int insert(Progress progress);
 
     Progress selectByPrimaryKey(Integer progressId);
 

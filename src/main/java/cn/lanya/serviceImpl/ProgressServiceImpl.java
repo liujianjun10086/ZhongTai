@@ -17,4 +17,13 @@ public class ProgressServiceImpl implements ProgressService {
     public List<Progress> getAll() {
         return progressMapper.selectAll();
     }
+
+    @Override
+    public int insert(Progress progress) {
+
+        return progressMapper.insert(progress);
+
+    }
+
+
 }

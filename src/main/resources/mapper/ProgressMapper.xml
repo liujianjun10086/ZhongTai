@@ -9,6 +9,7 @@
     delete from progress
     where progress_id = #{progressId,jdbcType=INTEGER}
   </delete>
+  <!--添加审批进度 -->
   <insert id="insert" parameterType="cn.lanya.po.Progress" >
     insert into progress (progress_id, progress_name)
     values (#{progressId,jdbcType=INTEGER}, #{progressName,jdbcType=VARCHAR})

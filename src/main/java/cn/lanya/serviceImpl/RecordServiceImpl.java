@@ -22,6 +22,7 @@ public class RecordServiceImpl implements RecordService {
     //新增审批
     @Override
     public int addRecord(Record record) {
+
         return recordMapper.insertRecord(record);
     }
 }
