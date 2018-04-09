@@ -25,4 +25,10 @@ public class RecordServiceImpl implements RecordService {
 
         return recordMapper.insertRecord(record);
     }
+
+    //员工查询个人办理的订单
+    @Override
+    public List<Record> getSelectRecordByRecord_staff(String staffJnum) {
+        return recordMapper.selectRecordByRecord_staff(staffJnum);
+    }
 }

@@ -45,4 +45,7 @@
     WHERE staff_jnum = #{staffJnum,jdbcType=VARCHAR}
     AND staff_password = #{staffPassword,jdbcType=VARCHAR}
   </select>
+  <select id="selectByStaff_num" parameterType="java.lang.Integer">
+    SELECT * FROM  staff WHERE id=#{id}
+  </select>
 </mapper>

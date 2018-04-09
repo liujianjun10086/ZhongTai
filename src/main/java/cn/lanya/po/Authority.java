@@ -7,8 +7,6 @@ public class Authority implements Serializable {
 
     private String authorityName;
 
-    private Integer authorityPower;
-
     private static final long serialVersionUID = 1L;
 
     public Integer getAuthorityId() {
@@ -27,14 +25,6 @@ public class Authority implements Serializable {
         this.authorityName = authorityName == null ? null : authorityName.trim();
     }
 
-    public Integer getAuthorityPower() {
-        return authorityPower;
-    }
-
-    public void setAuthorityPower(Integer authorityPower) {
-        this.authorityPower = authorityPower;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -43,7 +33,6 @@ public class Authority implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", authorityId=").append(authorityId);
         sb.append(", authorityName=").append(authorityName);
-        sb.append(", authorityPower=").append(authorityPower);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,5 +1,6 @@
 package cn.lanya.controller;
 
+import cn.lanya.po.Module;
 import cn.lanya.po.Power;
 import cn.lanya.po.Staff;
 import cn.lanya.service.LoginService;
@@ -22,15 +23,16 @@ public class LoginHandler {
     private LoginService loginService;
     @RequestMapping("/login")
     public String getByStaff(Staff staff, ModelAndView modelAndView, HttpServletRequest request){
-        System.err.print(1);
         Staff staff1= loginService.getByStaff(staff);
-        System.out.print(staff1.getStaffId());
         if (staff1!=null){
-            List<Power> powerList =getAll();
+            List<Power> powerList =getPowerByStaffJnum(staff1.getStaffJnum());
+            List<Module> moduleList=getByStaffJnum(staff1.getStaffJnum());
             HttpSession session =request.getSession(true);
             session.setAttribute("staff",staff1);
+            session.setAttribute("moduleList",moduleList);
             session.setAttribute("powerList",powerList);
             modelAndView.setViewName("top");
+            modelAndView.setViewName("left");
 
             return "main";
         }
@@ -38,8 +40,15 @@ public class LoginHandler {
     }
     @Autowired
     private MenuService menuService;
-    public List<Power> getAll(){
-        return menuService.gettAll();
+//    public List<Power> getAll(){
+//        return menuService.gettAll();
+//    }
+    public List<Module> getByStaffJnum(String staffJnum){
+        return menuService.getByStaffJnum(staffJnum);
+
+    }
+    public List<Power> getPowerByStaffJnum(String staffJnum){
+        return menuService.getPowerByStaffJnum(staffJnum);
     }
 
 }

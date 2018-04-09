@@ -7,15 +7,15 @@
 <title>无标题文档</title>
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript">
-$(function(){	
-	//顶部导航切换
-	$(".nav li a").click(function(){
-		$(".nav li a.selected").removeClass("selected")
-		$(this).addClass("selected");
-	})	
-})	
-</script>
+<%--<script type="text/javascript">--%>
+<%--// $(function(){--%>
+<%--// 	//顶部导航切换--%>
+<%--// 	$(".nav li a").click(function(){--%>
+<%--// 		$(".nav li a.selected").removeClass("selected")--%>
+<%--// 		$(this).addClass("selected");--%>
+<%--// 	})--%>
+<%--// })--%>
+<%--</script>--%>
 
 
 </head>
@@ -27,13 +27,13 @@ $(function(){
     </div>
         
     <ul class="nav">
-    <li><a href="<%=request.getContextPath()%>/recordList" target="rightFrame" class="selected"><img width="45px" height="45px" src="${pageContext.request.contextPath}/images/icon01.png" title="审批列表" /><h2>审批列表</h2></a></li>
-    <li><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon05.png" width="45px" height="45px" title="审批添加" /><h2>审批添加</h2></a></li>
-    <li><a href="${pageContext.request.contextPath}/jsp/imglist.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon03.png" title="申请列表" /><h2>申请列表</h2></a></li>
-    <li><a href="${pageContext.request.contextPath}/jsp/tools.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon04.png" title="客户列表" /><h2>客户列表</h2></a></li>
-    <li><a href="${pageContext.request.contextPath}/jsp/tab.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
-        <c:forEach var="powerList" items="${powerList}">
-            <li><a href="${powerList.powerUrl}"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon06.png" title="${powerList.powerItem}" /><h2>${powerList.powerItem}</h2></a></li>
+    <%--<li><a href="<%=request.getContextPath()%>/recordList" target="rightFrame" class="selected"><img width="45px" height="45px" src="${pageContext.request.contextPath}/images/icon01.png" title="审批列表" /><h2>审批列表</h2></a></li>--%>
+    <%--<li><a href="${pageContext.request.contextPath}/jsp/imgtable.jsp" target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon05.png" width="45px" height="45px" title="审批添加" /><h2>审批添加</h2></a></li>--%>
+    <%--<li><a href="${pageContext.request.contextPath}/jsp/imglist.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon03.png" title="申请列表" /><h2>申请列表</h2></a></li>--%>
+    <%--<li><a href="${pageContext.request.contextPath}/jsp/tools.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon04.png" title="客户列表" /><h2>客户列表</h2></a></li>--%>
+    <%--<li><a href="${pageContext.request.contextPath}/jsp/tab.jsp"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>--%>
+        <c:forEach var="moduleList" items="${moduleList}">
+            <li><a href="${moduleList.moduleUrl}"  target="rightFrame"><img src="${pageContext.request.contextPath}/images/icon06.png" title="${moduleList.moduleName}" /><h2>${moduleList.moduleName}</h2></a></li>
         </c:forEach>
     </ul>
             
