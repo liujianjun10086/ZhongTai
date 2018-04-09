@@ -7,7 +7,9 @@ public class Groups implements Serializable {
 
     private String groupName;
 
-    private Integer groupDepart;
+    private Integer groupDepartid;
+
+    private Depart groupDepart;
 
     private static final long serialVersionUID = 1L;
 
@@ -24,14 +26,22 @@ public class Groups implements Serializable {
     }
 
     public void setGroupName(String groupName) {
-        this.groupName = groupName == null ? null : groupName.trim();
+        this.groupName = groupName;
     }
 
-    public Integer getGroupDepart() {
+    public Integer getGroupDepartid() {
+        return groupDepartid;
+    }
+
+    public void setGroupDepartid(Integer groupDepartid) {
+        this.groupDepartid = groupDepartid;
+    }
+
+    public Depart getGroupDepart() {
         return groupDepart;
     }
 
-    public void setGroupDepart(Integer groupDepart) {
+    public void setGroupDepart(Depart groupDepart) {
         this.groupDepart = groupDepart;
     }
 

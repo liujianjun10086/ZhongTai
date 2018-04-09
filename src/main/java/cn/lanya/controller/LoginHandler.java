@@ -25,16 +25,21 @@ public class LoginHandler {
     public String getByStaff(Staff staff, ModelAndView modelAndView, HttpServletRequest request){
         Staff staff1= loginService.getByStaff(staff);
         if (staff1!=null){
-            List<Power> powerList =getPowerByStaffJnum(staff1.getStaffJnum());
-            List<Module> moduleList=getByStaffJnum(staff1.getStaffJnum());
-            HttpSession session =request.getSession(true);
-            session.setAttribute("staff",staff1);
-            session.setAttribute("moduleList",moduleList);
-            session.setAttribute("powerList",powerList);
-            modelAndView.setViewName("top");
-            modelAndView.setViewName("left");
+            if (staff1.getStaffStateid()==1) {
+                List<Power> powerList = getPowerByStaffJnum(staff1.getStaffJnum());
+                List<Module> moduleList = getByStaffJnum(staff1.getStaffJnum());
+                HttpSession session = request.getSession(true);
+                session.setAttribute("staff", staff1);
+                session.setAttribute("moduleList", moduleList);
+                session.setAttribute("powerList", powerList);
+                modelAndView.setViewName("top");
+                modelAndView.setViewName("left");
 
-            return "main";
+                return "main";
+            }
+            else{
+
+            }
         }
         return "error";
     }

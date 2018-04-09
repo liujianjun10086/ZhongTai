@@ -6,6 +6,8 @@ import cn.lanya.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StaffServiceImpl implements StaffService {
     @Autowired
@@ -13,5 +15,10 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public Staff getStaff(int id) {
         return staffMapper.selectByStaff_num(id);
+    }
+
+    @Override
+    public List<Staff> getAll() {
+        return staffMapper.selectAll();
     }
 }

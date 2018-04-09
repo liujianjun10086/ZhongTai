@@ -6,8 +6,26 @@
     <result column="staff_jnum" property="staffJnum" jdbcType="VARCHAR" />
     <result column="staff_password" property="staffPassword" jdbcType="VARCHAR" />
     <result column="staff_name" property="staffName" jdbcType="VARCHAR" />
-    <result column="staff_authority" property="staffAuthority" jdbcType="INTEGER" />
-    <result column="staff_state" property="staffState" jdbcType="INTEGER" />
+    <result column="staff_authority" property="staffAuthorityid" jdbcType="INTEGER" />
+    <result column="staff_state" property="staffStateid" jdbcType="INTEGER" />
+    <result column="staff_groub" property="staffGroupid" javaType="INTEGER"/>
+    <association property="staffAuthority" javaType="cn.lanya.po.Authority">
+      <id column="authority_id" javaType="INTEGER" property="authorityId"/>
+      <result column="authority_name" property="authorityName" jdbcType="VARCHAR" />
+    </association>
+    <association property="staffState" javaType="cn.lanya.po.State">
+      <id column="state_id" property="stateId" jdbcType="INTEGER" />
+      <result column="state_name" property="stateName" jdbcType="VARCHAR" />
+    </association>
+    <association property="staffGroup" javaType="cn.lanya.po.Groups">
+      <id column="group_id" property="groupId" jdbcType="INTEGER" />
+      <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+      <result column="group_depart" property="groupDepartid" jdbcType="INTEGER" />
+      <association property="groupDepart" javaType="cn.lanya.po.Depart">
+        <id column="depart_id" property="departId" jdbcType="INTEGER" />
+        <result column="depart_name" property="departName" jdbcType="VARCHAR" />
+      </association>
+    </association>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from staff
@@ -18,7 +36,7 @@
       staff_name, staff_authority, staff_state
       )
     values (#{staffId,jdbcType=INTEGER}, #{staffJnum,jdbcType=VARCHAR}, #{staffPassword,jdbcType=VARCHAR}, 
-      #{staffName,jdbcType=VARCHAR}, #{staffAuthority,jdbcType=INTEGER}, #{staffState,jdbcType=INTEGER}
+      #{staffName,jdbcType=VARCHAR}, #{staffAuthorityid,jdbcType=INTEGER}, #{staffStateid,jdbcType=INTEGER}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Staff" >
@@ -26,8 +44,8 @@
     set staff_jnum = #{staffJnum,jdbcType=VARCHAR},
       staff_password = #{staffPassword,jdbcType=VARCHAR},
       staff_name = #{staffName,jdbcType=VARCHAR},
-      staff_authority = #{staffAuthority,jdbcType=INTEGER},
-      staff_state = #{staffState,jdbcType=INTEGER}
+      staff_authority = #{staffAuthorityid,jdbcType=INTEGER},
+      staff_state = #{staffStateid,jdbcType=INTEGER}
     where staff_id = #{staffId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -36,8 +54,9 @@
     where staff_id = #{staffId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select staff_id, staff_jnum, staff_password, staff_name, staff_authority, staff_state
-    from staff
+    SELECT a.staff_jnum,a.staff_name,b.authority_name,c.state_name,e.depart_name
+    FROM staff a,authority b,state c,groups d,depart e
+    WHERE a.staff_authority=b.authority_id AND a.staff_state=c.state_id AND a.staff_groub=d.group_id AND d.group_depart=e.depart_id
   </select>
   <select id="selectByStaff" parameterType="cn.lanya.po.Staff" resultMap="BaseResultMap">
     SELECT *

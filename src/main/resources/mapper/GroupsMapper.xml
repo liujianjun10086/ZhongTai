@@ -4,7 +4,12 @@
   <resultMap id="BaseResultMap" type="cn.lanya.po.Groups" >
     <id column="group_id" property="groupId" jdbcType="INTEGER" />
     <result column="group_name" property="groupName" jdbcType="VARCHAR" />
-    <result column="group_depart" property="groupDepart" jdbcType="INTEGER" />
+    <result column="group_depart" property="groupDepartid" jdbcType="INTEGER" />
+    <association property="groupDepart" javaType="cn.lanya.po.Depart">
+      <id column="depart_id" property="departId" jdbcType="INTEGER" />
+      <result column="depart_name" property="departName" jdbcType="VARCHAR" />
+    </association>
+
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from groups
@@ -13,13 +18,13 @@
   <insert id="insert" parameterType="cn.lanya.po.Groups" >
     insert into groups (group_id, group_name, group_depart
       )
-    values (#{groupId,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR}, #{groupDepart,jdbcType=INTEGER}
+    values (#{groupId,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR}, #{groupDepartid,jdbcType=INTEGER}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="cn.lanya.po.Groups" >
     update groups
     set group_name = #{groupName,jdbcType=VARCHAR},
-      group_depart = #{groupDepart,jdbcType=INTEGER}
+      group_depart = #{groupDepartid,jdbcType=INTEGER}
     where group_id = #{groupId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

@@ -71,7 +71,7 @@ $(function(){
                     <c:forEach var="powerList" items="${powerList}">
                         <%--${powerList.module.moduleId}--%>
                         <c:if test="${moduleList.moduleId eq powerList.moduleid}">
-                        <li><cite></cite><a href="${powerList.powerUrl}">${powerList.powerItem}</a><i></i></li>
+                        <li><cite></cite><a href="${powerList.powerUrl}" target="rightFrame">${powerList.powerItem}</a><i></i></li>
                         </c:if>
                     </c:forEach>
 

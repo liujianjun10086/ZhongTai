@@ -11,11 +11,35 @@ public class Staff implements Serializable {
 
     private String staffName;
 
-    private Integer staffAuthority;
+    private Integer staffAuthorityid;
 
-    private Integer staffState;
+    private Authority staffAuthority;
+
+    private Integer staffStateid;
+
+    private State staffState;
+
+    private Integer staffGroupid;
+
+    private Groups staffGroup;
 
     private static final long serialVersionUID = 1L;
+
+    public Integer getStaffGroupid() {
+        return staffGroupid;
+    }
+
+    public void setStaffGroupid(Integer staffGroupid) {
+        this.staffGroupid = staffGroupid;
+    }
+
+    public Groups getStaffGroup() {
+        return staffGroup;
+    }
+
+    public void setStaffGroup(Groups staffGroup) {
+        this.staffGroup = staffGroup;
+    }
 
     public Integer getStaffId() {
         return staffId;
@@ -30,7 +54,7 @@ public class Staff implements Serializable {
     }
 
     public void setStaffJnum(String staffJnum) {
-        this.staffJnum = staffJnum == null ? null : staffJnum.trim();
+        this.staffJnum = staffJnum;
     }
 
     public String getStaffPassword() {
@@ -38,7 +62,7 @@ public class Staff implements Serializable {
     }
 
     public void setStaffPassword(String staffPassword) {
-        this.staffPassword = staffPassword == null ? null : staffPassword.trim();
+        this.staffPassword = staffPassword;
     }
 
     public String getStaffName() {
@@ -46,22 +70,38 @@ public class Staff implements Serializable {
     }
 
     public void setStaffName(String staffName) {
-        this.staffName = staffName == null ? null : staffName.trim();
+        this.staffName = staffName;
     }
 
-    public Integer getStaffAuthority() {
+    public Integer getStaffAuthorityid() {
+        return staffAuthorityid;
+    }
+
+    public void setStaffAuthorityid(Integer staffAuthorityid) {
+        this.staffAuthorityid = staffAuthorityid;
+    }
+
+    public Authority getStaffAuthority() {
         return staffAuthority;
     }
 
-    public void setStaffAuthority(Integer staffAuthority) {
+    public void setStaffAuthority(Authority staffAuthority) {
         this.staffAuthority = staffAuthority;
     }
 
-    public Integer getStaffState() {
+    public Integer getStaffStateid() {
+        return staffStateid;
+    }
+
+    public void setStaffStateid(Integer staffStateid) {
+        this.staffStateid = staffStateid;
+    }
+
+    public State getStaffState() {
         return staffState;
     }
 
-    public void setStaffState(Integer staffState) {
+    public void setStaffState(State staffState) {
         this.staffState = staffState;
     }
 
@@ -75,8 +115,8 @@ public class Staff implements Serializable {
         sb.append(", staffJnum=").append(staffJnum);
         sb.append(", staffPassword=").append(staffPassword);
         sb.append(", staffName=").append(staffName);
-        sb.append(", staffAuthority=").append(staffAuthority);
-        sb.append(", staffState=").append(staffState);
+        sb.append(", staffAuthorityid=").append(staffAuthorityid);
+        sb.append(", staffStateid=").append(staffStateid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
